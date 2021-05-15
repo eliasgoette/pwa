@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>PWA</title>
+        <link rel="icon" href="icon_144.png" />
+        <meta charset="UTF-8" />
+        <meta name="theme-color" content="#ff0000" />
+        <link rel="apple-touch-icon" href="icon_192.png" />
+        <meta name="viewport" content="initial-scale=1, user-scalable=no" />
+        <meta name="description" content="PWA to learn how it works" />
+        <link rel="manifest" href="manifest.webmanifest" />
         <script type="text/javascript" async>
-            caches.open("PWACache");
+            window.addEventListener('load', () => {
+                regesterServiceWorker();
+            });
+
+            async function regesterServiceWorker(){
+                if('serviceWorker' in navigator){
+                    try{
+                        await navigator.serviceWorker.register('service-worker.js');
+                    } catch(e){
+                        console.log('Failed registring seervice worker');
+                    }
+                } else{
+                    console.log('Property serviceWorker is not available');
+                }
+            }
         </script>
     </head>
     <body>
         <header>
-            <h1>Super simple PWA</h1>            
+            <h1>Simple PWA</h1>            
         </header>
         <main>
             <article>
@@ -31,6 +52,8 @@
             </article>
         </main>
         <footer>
+            <p>&hearts; Made with &lagran;&order;&vscr;&ee; &hearts;</p>
+            <p>&OpenCurlyDoubleQuote;Pull up on the S show love, that be gang shit&CloseCurlyDoubleQuote;</p>
             <p>Copyright &copy; 2021 E.Goette</p>
         </footer>
     </body>
