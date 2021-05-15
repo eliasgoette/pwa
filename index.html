@@ -10,7 +10,21 @@
         <meta name="description" content="PWA to learn how it works" />
         <link rel="manifest" href="manifest.webmanifest" />
         <script type="text/javascript" async>
-            caches.open("PWACache");
+            window.addEventListener('load', () => {
+                regesterServiceWorker();
+            });
+
+            async function regesterServiceWorker(){
+                if('serviceWorker' in navigator){
+                    try{
+                        await navigator.serviceWorker.register('service-worker.js');
+                    } catch(e){
+                        console.log('Failed registring seervice worker');
+                    }
+                } else{
+                    console.log('Property serviceWorker is not available');
+                }
+            }
         </script>
     </head>
     <body>
