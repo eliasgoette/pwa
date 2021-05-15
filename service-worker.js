@@ -3,7 +3,10 @@ const staticAssets = [
     './',
     './index.html',
     './service-worker.js',
-    './manifest.webmanifest'
+    './manifest.webmanifest',
+    './icon_144.png',
+    './icon_192.png',
+    './icon_512.png'
 ];
 
 self.addEventListener('install', async e => {
